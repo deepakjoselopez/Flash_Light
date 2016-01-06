@@ -5,35 +5,83 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	</head>
-	<body>
-		<!-- Start of first page I -->
-		<div data-role="page" id="page1">
-			<!-- Header -->
-			<div data-role="header">
-				<h1>Phonegap Template &amp;</h1>
 
-			</div>
-			<!-- /header -->
-			<!-- Content    -->
-			<div data-role="content">
-				<h3>Content</h3>
-				<p>
-					Events Test Page
-				</p>
-			</div>
-			<!-- /content -->
-			<!-- footer -->
-			<div data-role="footer">
-				<h4>&copy; 2013 Your Name</h4>
-			</div>
-			<!-- /footer -->
+	</head>
+	<style>
+		/* Custom indentations are needed because the length of custom labels differs from
+		 the length of the standard labels */
+		.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+			text-indent: -4em;
+		}
+		.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+			text-indent: 2em;
+		}
+		/* Custom widths are needed because the length of custom labels differs from
+		 the length of the standard labels */
+		.custom-size-flipswitch.ui-flipswitch {
+			width: 8.875em;
+		}
+		.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+			padding-left: 7em;
+			width: 1.875em;
+		}
+		
+		
+		
+		/*.toggleOnButton {
+			width: 400px !important;
+			height: 700px !important;
+			background: transparent url('switch_on.png') no-repeat center center !important;
+			background-size: contain !important;
+		}
+
+		.toggleOffButton {
+			background: transparent url('switch_off.png') no-repeat center center !important;
+			background-size: contain !important;
+			
+		}*/
+		
+		
+	</style>
+	<body>
+		
+		<div data-role="content">
+
+		<div data-role="page">
+		<div data-role="header">
+		<h1>Flash Light</h1>
 		</div>
-		<!-- /page -->
+
+		<!--<div data-role="main" class="ui-content">
+		<input type="checkbox" data-role="flipswitch" name="switch" id="switch" data-wrapper-class="custom-size-flipswitch">
+		</div>-->
+		<!--<div style="width: 100%; height: 100%" >
+		<img alt="ON" src="switch_on.png" />
+		</div>-->
+		<div id="btnLightOn" style="width: 100%; ">
+		<img alt="ON" src="switch_on.png" style="width: 100%;">
+		</div>
+		<div id="btnLightOff" style="width: 100%; display: none">
+		<img alt="OFF" src="switch_off.png" style="width: 100%;">
+		</div>
+		</div>
+		</div>
+		<!--
+		<div data-role="page" id="index">
+			<div data-theme="b" data-role="header">
+				<h1>Index page</h1>
+			</div>
+
+			<div data-role="content">
+				<a data-role="button" class="toggleOnButton" id='toggleButton' data-corners="true" data-mini="false"
+				data-theme="a" tabIndex="2"> </a>
+			</div>
+		</div>-->
+
 	</body>
 </html>
 <script>
@@ -42,21 +90,30 @@
 	function onDeviceReady() {
 		document.addEventListener("pause", onPause, false);
 		document.addEventListener("resume", onResume, false);
-		alert("Device is Ready");
-
+		$( "#btnLightOn" ).bind( "click", function(event, ui) {
+				$( "#btnLightOn" ).hide();
+				$( "#btnLightOff" ).show();
+		});
+		
+		$( "#btnLightOff" ).bind( "click", function(event, ui) {
+				$( "#btnLightOn" ).show();
+				$( "#btnLightOff" ).hide();
+		});
+		
+		//$("#toggleButton").on("click", function() {
+		//	$(this).toggleClass("toggleOffButton");			
+		//});
 	}
 
+	//What to do when paused
+	function onPause() {
 
-//What to do when paused
-function onPause(){
-	
-	alert("paused!");
-}
+		alert("paused!");
+	}
 
-//What to do when resumed
-function onResume()
-{
-	
-	alert("resume");
-}
+	//What to do when resumed
+	function onResume() {
+
+		alert("resume");
+	}
 </script>
