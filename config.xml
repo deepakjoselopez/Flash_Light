@@ -112,5 +112,12 @@
     <platform name="winphone" />
 
 
+<!-- for Android -->
+<feature name="Flashlight">
+  <param name="android-package" value="nl.xservices.plugins.Flashlight" />
+</feature>
 
+<uses-permission android:name="android.permission.CAMERA"/>
+
+<gap:plugin name="nl.x-services.plugins.flashlight" />
 </widget>

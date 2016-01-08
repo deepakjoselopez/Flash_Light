@@ -9,6 +9,7 @@
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" src="Flashlight.js"></script>
 
 	</head>
 	<style>
@@ -93,11 +94,13 @@
 		$( "#btnLightOn" ).bind( "click", function(event, ui) {
 				$( "#btnLightOn" ).hide();
 				$( "#btnLightOff" ).show();
+				window.plugins.flashlight.toggle(); 
 		});
 		
 		$( "#btnLightOff" ).bind( "click", function(event, ui) {
 				$( "#btnLightOn" ).show();
 				$( "#btnLightOff" ).hide();
+				window.plugins.flashlight.toggle(); 
 		});
 		
 		//$("#toggleButton").on("click", function() {
