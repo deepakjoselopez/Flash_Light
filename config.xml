@@ -64,7 +64,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-
+	<gap:plugin name="nl.x-services.plugins.flashlight" version="2.0.0" />
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--
@@ -113,11 +113,11 @@
 
 
 <!-- for Android -->
-<feature name="Flashlight">
+<!--<feature name="Flashlight">
   <param name="android-package" value="nl.xservices.plugins.Flashlight" />
-</feature>
+</feature>-->
 
-<uses-permission android:name="android.permission.CAMERA"/>
+<!-- <uses-permission android:name="android.permission.CAMERA"/>-->
 
-<gap:plugin name="nl.x-services.plugins.flashlight" />
+
 </widget>
